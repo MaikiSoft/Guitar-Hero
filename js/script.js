@@ -53,11 +53,16 @@ function crearJugador() {
     return cont_Jug
 }
 //para el juego y elimina todos las imagenes para reiniciarlo
+let contador = document.querySelector('.contador')
+let cont = 0;
 function parar() {
+    cont = 0
+    contador.textContent = padLeft(cont,3)
     let boton = document.querySelector('.btn-Prin')
     boton.setAttribute('onclick', 'Iniciar()')
     boton.textContent = 'Iniciar'
     clearInterval(intervaloCreacionjug)
+    clearInterval(intervaloMovimiento)
     var cuerdaJug = document.querySelectorAll('.carril')
     cuerdaJug.forEach(cont => {
         var img = cont.querySelectorAll('img');
@@ -75,8 +80,8 @@ const btn1 = document.getElementById('btn1')
 const btn2 = document.getElementById('btn2')
 const btn3 = document.getElementById('btn3')
 let cont_action = document.querySelectorAll('.carril')
-let contador = document.querySelector('.contador')
-let cont = 0;
+
+
 document.addEventListener('keydown', (evt) => {
     audio4.pause();
     audio4.currentTime = 0;
